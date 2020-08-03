@@ -1,0 +1,18 @@
+version: "3.5"
+
+services:
+  git-server:
+    container_name: git-server
+    image: hypriot/rpi-gogs-raspbian
+    restart: always
+    networks:
+      - E-skeleton
+    ports:
+      - "8022:22"
+      - "3000:3000"
+    volumes:
+      - "/media/usb-drive:/data"
+
+networks:
+  E-skeleton:
+    name: E-skeleton-git
